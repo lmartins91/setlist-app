@@ -19,7 +19,7 @@ export default class ShowScreen extends React.Component {
         return <View style={styles.container}>
             <View style={styles.showDetails}>
                 <View style={styles.showDateContainer}>
-                    <ShowDate date={params.show.date} size='large' />
+                    <ShowDate date={params.show.date} size='medium' />
                 </View>
                 <View style={styles.info}>
                     <Text style={styles.h1}>{params.show.venue.name}</Text>
@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 16,
-        marginRight: 12
+        marginRight: 12,
+        height: 70, width: 70,
     },
     info: {
         flex: 1,

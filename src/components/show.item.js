@@ -8,7 +8,7 @@ export const ShowItem = ({ date, goToShow, title }) => (
         <TouchableHighlight onPress={() => goToShow()}>
             <View style={styles.container}>
                 <View style={styles.showDateContainer}>
-                    <ShowDate date={date} />
+                    <ShowDate date={date} size="small" />
                 </View>
                 <View style={styles.info}>
                     {title}
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
+        alignItems: 'center',
     },
     showDateContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginHorizontal: 16
+        marginHorizontal: 16,
+        height: 45, width: 45,
     },
     info: {
         flex: 1,
