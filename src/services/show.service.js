@@ -4,9 +4,10 @@ import { Show } from '../utils/models.utils'
 
 export class ShowService {
     
-    static getShows({ artistId, date, page = 1, venueId, year }) {
+    static getShows({ artistId, cityId, date, page = 1, venueId, year }) {
         let url =`https://api.setlist.fm/rest/0.1/search/setlists.json?p=${page}`
         if (artistId) url += `&artistMbid=${artistId}`
+        if (cityId) url += `&cityId=${cityId}`
         if (date) url += `&date=${moment(date).format('DD-MM-YYYY')}`
         if (year) url += `&year=${year}`
         if (venueId) url += `&venueId=${venueId}`
