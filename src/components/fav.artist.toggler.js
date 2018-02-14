@@ -4,7 +4,7 @@ import { Text, View, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import * as _ from 'lodash'
 
-import { addFavArtist, removeFavArtist } from '../actions/fav.artists'
+import { addFavArtist, removeFavArtist } from '../actions'
 import * as colors from '../styles/colors'
 
 class FavArtistToggler extends React.Component {
@@ -24,7 +24,7 @@ class FavArtistToggler extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    favArtists: state.favArtists
+    favArtists: state.user.favArtists
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

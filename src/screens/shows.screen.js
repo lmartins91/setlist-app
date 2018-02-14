@@ -4,8 +4,7 @@ import { Text, StyleSheet, View } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import * as _ from 'lodash'
 
-import { addFavArtist, removeFavArtist } from '../actions/fav.artists'
-import { loadShows } from '../actions/shows'
+import { loadShows } from '../actions'
 import { FavArtistToggler, FiltersModal, Header, ShowList } from '../components'
 import * as colors from '../styles/colors'
 
@@ -96,9 +95,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addFavArtist: (artist) => dispatch(addFavArtist(artist)),
     loadShows: (criteria) => dispatch(loadShows(criteria)),
-    removeFavArtist: (artist) => dispatch(removeFavArtist(artist)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowsScreen)

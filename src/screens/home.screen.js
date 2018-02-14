@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { StyleSheet, Text, View, Dimensions, FlatList } from 'react-native'
 import moment from 'moment'
 
-import { loadFavArtists } from '../actions/fav.artists'
+import { addLocation, loadUser, loadShows } from '../actions/'
 import * as colors from '../styles/colors'
 
 const SectionHeader = ({ title }) => (
@@ -17,7 +17,7 @@ class HomeScreen extends React.Component {
     static navigationOptions = { title: 'Home' }
     
     componentDidMount() {
-        this.props.loadFavArtists()
+        this.props.loadUser()
     }
     
     render() {
@@ -36,11 +36,14 @@ class HomeScreen extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    favArtists: state.favArtists
+    favArtists: _.get(state, 'user.favArtists', []),
+    location: _.get(state, 'user.location', null)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    loadFavArtists: () => dispatch(loadFavArtists())
+    addLocation: (location) => dispatch(addLocation(location)),
+    loadShows: (criteria) => dispatch(loadShows(criteria)),
+    loadUser: () => dispatch(loadUser()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
