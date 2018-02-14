@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Text, View, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import * as _ from 'lodash'
 
 import { addFavArtist, removeFavArtist } from '../actions'
 import * as colors from '../styles/colors'
@@ -34,7 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
     const artist = ownProps.artist
-    const isFavorite = _.includes(stateProps.favArtists, artist)
+    const isFavorite = !!stateProps.favArtists.find(a => a.id == artist.id)
     const toggleFavorite = isFavorite ? dispatchProps.removeFavArtist : dispatchProps.addFavArtist
     return { artist, isFavorite, toggleFavorite }
 }
